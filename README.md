@@ -18,17 +18,4 @@ Welcome to my GitHub profile! I'm Akilan, a **B.E. in Computer Engineering** stu
 - **Cloud / DevOps:** ☁️ AWS (EC2, S3), Kubernetes, Ansible, CI/CD pipelines  
 - **Certifications:** 🎓 (List relevant certs or trainings here)  
 
-## 📊 GitHub Stats
-
-![Akilan's GitHub Stats](https://github-readme-stats.vercel.app/api?username=Akilan100&show_icons=true&theme=dark)  
-![GitHub Streak](https://github-readme-streak-stats.herokuapp.com?user=Akilan100&theme=dark)  
-<img src="https://komarev.com/ghpvc/?username=Akilan100&style=flat-square" alt="Profile Views" />
-
-## 📫 Find me
-
-- [LinkedIn](https://www.linkedin.com/in/akilan100/)  
-- [Twitter](https://twitter.com/akilan100)  
-- [Mail](mailto:akilan100@example.com)  
-
-*Thanks for visiting!*
 
