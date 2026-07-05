@@ -1,4 +1,4 @@
-![header](https://capsule-render.vercel.app/api?type=venom&color=0:00FFFF,50:00CED1,100:0080FF&height=300&text=Subham%20Nayak&fontSize=80&fontColor=ffffff&desc=Full%20Stack%20Developer%20from%20India%20🇮🇳&descAlignY=70&descSize=20&animation=scaleIn)
+
 
 <!-- Centered Typing Text -->
 <p align="center">
