@@ -1,0 +1,47 @@
+<svg width="450" height="195" viewBox="0 0 450 195" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .header { font: 600 17px 'Segoe UI', Ubuntu, Sans-Serif; fill: #00FF66; }
+    .stat-label { font: 400 13px 'Segoe UI', Ubuntu, Sans-Serif; fill: #8b949e; }
+    .stat-value { font: 600 14px 'Segoe UI', Ubuntu, Sans-Serif; fill: #e6edf3; }
+    .rank-circle { stroke: #00FF66; stroke-width: 4; fill: none; }
+    .rank-text { font: 700 24px 'Segoe UI', Ubuntu, Sans-Serif; fill: #00FF66; text-anchor: middle; dominant-baseline: central; }
+    .rank-sub { font: 500 10px 'Segoe UI', Ubuntu, Sans-Serif; fill: #8b949e; text-anchor: middle; }
+  </style>
+  <rect width="448" height="193" x="1" y="1" rx="8" fill="#0d1117" stroke="#00FF66" stroke-width="1.5"/>
+  
+  <!-- Header -->
+  <g transform="translate(25, 32)">
+    <text class="header" x="0" y="0">⚡ Akilan's GitHub Telemetry</text>
+  </g>
+
+  <!-- Left Stats Column -->
+  <g transform="translate(25, 60)">
+    <g transform="translate(0, 0)">
+      <circle cx="5" cy="5" r="3" fill="#00FF66"/>
+      <text class="stat-label" x="16" y="9">Total Stars Earned:</text>
+      <text class="stat-value" x="160" y="9">0</text>
+    </g>
+    <g transform="translate(0, 26)">
+      <circle cx="5" cy="5" r="3" fill="#00FF66"/>
+      <text class="stat-label" x="16" y="9">Total Repositories:</text>
+      <text class="stat-value" x="160" y="9">9</text>
+    </g>
+    <g transform="translate(0, 52)">
+      <circle cx="5" cy="5" r="3" fill="#00FF66"/>
+      <text class="stat-label" x="16" y="9">Total PRs &amp; Issues:</text>
+      <text class="stat-value" x="160" y="9">2</text>
+    </g>
+    <g transform="translate(0, 78)">
+      <circle cx="5" cy="5" r="3" fill="#00FF66"/>
+      <text class="stat-label" x="16" y="9">Total Commits (YTD):</text>
+      <text class="stat-value" x="160" y="9">7</text>
+    </g>
+  </g>
+
+  <!-- Right Rank Badge -->
+  <g transform="translate(355, 105)">
+    <circle cx="0" cy="0" r="42" class="rank-circle" stroke-dasharray="260" stroke-dashoffset="30"/>
+    <text class="rank-text" x="0" y="-3">A+</text>
+    <text class="rank-sub" x="0" y="16">OPERATOR</text>
+  </g>
+</svg>

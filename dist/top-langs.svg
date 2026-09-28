@@ -1,0 +1,53 @@
+<svg width="450" height="195" viewBox="0 0 450 195" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .header { font: 600 17px 'Segoe UI', Ubuntu, Sans-Serif; fill: #00FF66; }
+    .stat-label { font: 400 13px 'Segoe UI', Ubuntu, Sans-Serif; fill: #8b949e; }
+    .stat-value { font: 600 13px 'Segoe UI', Ubuntu, Sans-Serif; fill: #e6edf3; }
+  </style>
+  <rect width="448" height="193" x="1" y="1" rx="8" fill="#0d1117" stroke="#00FF66" stroke-width="1.5"/>
+  
+  <!-- Header -->
+  <g transform="translate(25, 32)">
+    <text class="header" x="0" y="0">🛠️ Most Used Languages</text>
+  </g>
+
+  <!-- Progress Bar Base & Segments -->
+  <rect x="25" y="60" width="400" height="10" rx="5" fill="#21262d"/>
+  <rect x="25" y="60" width="249.1" height="10" fill="#f1e05a" rx="2"/>
+<rect x="274.1" y="60" width="49.9" height="10" fill="#3178c6" rx="2"/>
+<rect x="324.0" y="60" width="36.0" height="10" fill="#b07219" rx="2"/>
+<rect x="360.0" y="60" width="32.4" height="10" fill="#427819" rx="2"/>
+<rect x="392.4" y="60" width="23.3" height="10" fill="#3572A5" rx="2"/>
+
+  <!-- Legend -->
+  
+    <g transform="translate(25, 100)">
+      <circle cx="6" cy="6" r="5" fill="#f1e05a"/>
+      <text class="stat-value" x="18" y="10">JavaScript</text>
+      <text class="stat-label" x="130" y="10">62.3%</text>
+    </g>
+
+    <g transform="translate(225, 100)">
+      <circle cx="6" cy="6" r="5" fill="#3178c6"/>
+      <text class="stat-value" x="18" y="10">TypeScript</text>
+      <text class="stat-label" x="130" y="10">12.5%</text>
+    </g>
+
+    <g transform="translate(25, 126)">
+      <circle cx="6" cy="6" r="5" fill="#b07219"/>
+      <text class="stat-value" x="18" y="10">Java</text>
+      <text class="stat-label" x="130" y="10">9.0%</text>
+    </g>
+
+    <g transform="translate(225, 126)">
+      <circle cx="6" cy="6" r="5" fill="#427819"/>
+      <text class="stat-value" x="18" y="10">Makefile</text>
+      <text class="stat-label" x="130" y="10">8.1%</text>
+    </g>
+
+    <g transform="translate(25, 152)">
+      <circle cx="6" cy="6" r="5" fill="#3572A5"/>
+      <text class="stat-value" x="18" y="10">Python</text>
+      <text class="stat-label" x="130" y="10">5.8%</text>
+    </g>
+</svg>

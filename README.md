@@ -90,14 +90,14 @@ Uptime         : 99.99%
 ### 📊 Live Telemetry & GitHub Metrics
 
 <div align="center">
-  <img src="https://github-readme-stats-anuraghazra.vercel.app/api?username=Akilan100&show_icons=true&theme=tokyonight&border_color=00FF66&bg_color=0d1117&title_color=00FF66&icon_color=00FF66&text_color=c9d1d9" width="48.5%" />
+  <img src="https://raw.githubusercontent.com/Akilan100/Akilan100/output/github-stats.svg" width="48.5%" />
   <img src="https://streak-stats.demolab.com/?user=Akilan100&theme=tokyonight&border_color=00FF66&background=0d1117&ring=00FF66&fire=00FF66&currStreakLabel=00FF66&currStreakNum=00FF66&sideNums=c9d1d9&sideLabels=c9d1d9" width="48.5%" />
 </div>
 
 <br/>
 
 <div align="center">
-  <img src="https://github-readme-stats-anuraghazra.vercel.app/api/top-langs/?username=Akilan100&layout=compact&theme=tokyonight&border_color=00FF66&bg_color=0d1117&title_color=00FF66&text_color=c9d1d9" width="55%" />
+  <img src="https://raw.githubusercontent.com/Akilan100/Akilan100/output/top-langs.svg" width="60%" />
 </div>
 
 ---
@@ -118,7 +118,7 @@ Uptime         : 99.99%
 
 <div align="center">
   <a href="https://github.com/Akilan100/full_stack_BookNest-ScholarStream_Library_Management_System">
-    <img src="https://github-readme-stats-anuraghazra.vercel.app/api/pin/?username=Akilan100&repo=full_stack_BookNest-ScholarStream_Library_Management_System&theme=tokyonight&border_color=00FF66&bg_color=0d1117&title_color=00FF66&text_color=c9d1d9&icon_color=00FF66" width="60%" />
+    <img src="https://img.shields.io/badge/Featured_Project-BookNest_%2F_ScholarStream_Library_System-00FF66?style=for-the-badge&logo=spring&logoColor=000000" height="38" />
   </a>
 </div>
 
