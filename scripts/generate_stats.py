@@ -46,7 +46,7 @@ query {
 
 def fetch_data():
     headers = {
-        "User-Agent": "Akilan-Profile-Generator",
+        "User-Agent": "Akilan-Cyber-Telemetry-Engine",
     }
     if TOKEN:
         headers["Authorization"] = f"Bearer {TOKEN}"
@@ -69,51 +69,79 @@ def generate_stats_svg(user_data):
     total_issues = user_data["issues"]["totalCount"]
     total_repos = user_data["repositories"]["totalCount"]
 
-    svg = f"""<svg width="450" height="195" viewBox="0 0 450 195" fill="none" xmlns="http://www.w3.org/2000/svg">
+    svg = f"""<svg width="480" height="225" viewBox="0 0 480 225" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="neon_border" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00FF66" stop-opacity="0.9"/>
+      <stop offset="50%" stop-color="#00B4D8" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#00FF66" stop-opacity="0.9"/>
+    </linearGradient>
+  </defs>
   <style>
-    .header {{ font: 600 17px 'Segoe UI', Ubuntu, Sans-Serif; fill: #00FF66; }}
-    .stat-label {{ font: 400 13px 'Segoe UI', Ubuntu, Sans-Serif; fill: #8b949e; }}
-    .stat-value {{ font: 600 14px 'Segoe UI', Ubuntu, Sans-Serif; fill: #e6edf3; }}
-    .rank-circle {{ stroke: #00FF66; stroke-width: 4; fill: none; }}
-    .rank-text {{ font: 700 24px 'Segoe UI', Ubuntu, Sans-Serif; fill: #00FF66; text-anchor: middle; dominant-baseline: central; }}
-    .rank-sub {{ font: 500 10px 'Segoe UI', Ubuntu, Sans-Serif; fill: #8b949e; text-anchor: middle; }}
+    .terminal-bg {{ fill: #0a0e14; stroke: url(#neon_border); stroke-width: 1.5; }}
+    .title-bar {{ fill: #121820; }}
+    .dot-red {{ fill: #ff5f56; }}
+    .dot-yellow {{ fill: #ffbd2e; }}
+    .dot-green {{ fill: #27c93f; }}
+    .term-title {{ font: 600 11px 'Fira Code', 'JetBrains Mono', Consolas, monospace; fill: #6e7681; }}
+    .header {{ font: 700 14px 'Fira Code', 'JetBrains Mono', Consolas, monospace; fill: #00FF66; }}
+    .stat-label {{ font: 500 12.5px 'Fira Code', 'JetBrains Mono', Consolas, monospace; fill: #8b949e; }}
+    .stat-value {{ font: 700 13px 'Fira Code', 'JetBrains Mono', Consolas, monospace; fill: #00FF66; }}
+    .rank-circle {{ stroke: #00FF66; stroke-width: 3.5; fill: none; }}
+    .rank-text {{ font: 800 26px 'Fira Code', 'JetBrains Mono', Consolas, monospace; fill: #00FF66; text-anchor: middle; dominant-baseline: central; }}
+    .rank-sub {{ font: 600 10px 'Fira Code', 'JetBrains Mono', Consolas, monospace; fill: #58a6ff; text-anchor: middle; letter-spacing: 1px; }}
   </style>
-  <rect width="448" height="193" x="1" y="1" rx="8" fill="#0d1117" stroke="#00FF66" stroke-width="1.5"/>
-  
-  <!-- Header -->
-  <g transform="translate(25, 32)">
-    <text class="header" x="0" y="0">⚡ Akilan's GitHub Telemetry</text>
+
+  <!-- Frame & Window Base -->
+  <rect width="478" height="223" x="1" y="1" rx="8" class="terminal-bg"/>
+  <path d="M1 9C1 4.58172 4.58172 1 9 1H471C475.418 1 479 4.58172 479 9V28H1V9Z" class="title-bar"/>
+  <line x1="1" y1="28" x2="479" y2="28" stroke="#1f2937" stroke-width="1"/>
+
+  <!-- Terminal Window Controls -->
+  <circle cx="16" cy="14" r="5" class="dot-red"/>
+  <circle cx="32" cy="14" r="5" class="dot-yellow"/>
+  <circle cx="48" cy="14" r="5" class="dot-green"/>
+  <text x="70" y="18" class="term-title">secops@elliot: /sys/telemetry/stats</text>
+
+  <!-- Section Header -->
+  <g transform="translate(24, 52)">
+    <text class="header" x="0" y="0">&gt; EXEC_STATUS: 0x00 [TELEMETRY_ONLINE]</text>
   </g>
 
-  <!-- Left Stats Column -->
-  <g transform="translate(25, 60)">
+  <!-- Stats Grid -->
+  <g transform="translate(24, 80)">
+    <!-- Stars -->
     <g transform="translate(0, 0)">
-      <circle cx="5" cy="5" r="3" fill="#00FF66"/>
-      <text class="stat-label" x="16" y="9">Total Stars Earned:</text>
-      <text class="stat-value" x="160" y="9">{total_stars}</text>
+      <text class="stat-label" x="0" y="0">[+] Stars Earned      :</text>
+      <text class="stat-value" x="195" y="0">{total_stars:02d}</text>
     </g>
-    <g transform="translate(0, 26)">
-      <circle cx="5" cy="5" r="3" fill="#00FF66"/>
-      <text class="stat-label" x="16" y="9">Total Repositories:</text>
-      <text class="stat-value" x="160" y="9">{total_repos}</text>
+    <!-- Repositories -->
+    <g transform="translate(0, 24)">
+      <text class="stat-label" x="0" y="0">[+] Total Repositories :</text>
+      <text class="stat-value" x="195" y="0">{total_repos:02d}</text>
     </g>
-    <g transform="translate(0, 52)">
-      <circle cx="5" cy="5" r="3" fill="#00FF66"/>
-      <text class="stat-label" x="16" y="9">Total PRs &amp; Issues:</text>
-      <text class="stat-value" x="160" y="9">{total_prs + total_issues}</text>
+    <!-- PRs & Issues -->
+    <g transform="translate(0, 48)">
+      <text class="stat-label" x="0" y="0">[+] PRs &amp; Sec Issues  :</text>
+      <text class="stat-value" x="195" y="0">{total_prs + total_issues:02d}</text>
     </g>
-    <g transform="translate(0, 78)">
-      <circle cx="5" cy="5" r="3" fill="#00FF66"/>
-      <text class="stat-label" x="16" y="9">Total Commits (YTD):</text>
-      <text class="stat-value" x="160" y="9">{total_commits}</text>
+    <!-- Commits -->
+    <g transform="translate(0, 72)">
+      <text class="stat-label" x="0" y="0">[+] Total Commits YTD  :</text>
+      <text class="stat-value" x="195" y="0">{total_commits:02d}</text>
+    </g>
+    <!-- System Security Status -->
+    <g transform="translate(0, 96)">
+      <text class="stat-label" x="0" y="0">[+] Sec Clearance      :</text>
+      <text class="stat-value" x="195" y="0" fill="#58a6ff">LEVEL_4_ROOT</text>
     </g>
   </g>
 
-  <!-- Right Rank Badge -->
-  <g transform="translate(355, 105)">
-    <circle cx="0" cy="0" r="42" class="rank-circle" stroke-dasharray="260" stroke-dashoffset="30"/>
+  <!-- Right Rank HUD -->
+  <g transform="translate(395, 126)">
+    <circle cx="0" cy="0" r="44" class="rank-circle" stroke-dasharray="276" stroke-dashoffset="35"/>
     <text class="rank-text" x="0" y="-3">A+</text>
-    <text class="rank-sub" x="0" y="16">OPERATOR</text>
+    <text class="rank-sub" x="0" y="18">CYBER_OP</text>
   </g>
 </svg>"""
     return svg
@@ -135,10 +163,10 @@ def generate_langs_svg(user_data):
 
     sorted_langs = sorted(lang_sizes.items(), key=lambda x: x[1], reverse=True)[:5]
     
-    # Calculate progress segments
+    # Progress segments
     progress_bars = []
-    curr_x = 25
-    bar_width = 400
+    curr_x = 24
+    bar_width = 430
     for name, size in sorted_langs:
         pct = (size / total_size)
         w = round(pct * bar_width, 1)
@@ -146,38 +174,62 @@ def generate_langs_svg(user_data):
             progress_bars.append((name, lang_colors.get(name, "#00FF66"), curr_x, w, pct * 100))
             curr_x += w
 
-    # Legend items (2 rows)
+    # Legend items
     legend_items = []
     for i, (name, color, _, _, pct) in enumerate(progress_bars):
         col = i % 2
         row = i // 2
-        x = 25 + col * 200
-        y = 100 + row * 26
+        x = 24 + col * 220
+        y = 104 + row * 26
         legend_items.append(f"""
     <g transform="translate({x}, {y})">
-      <circle cx="6" cy="6" r="5" fill="{color}"/>
-      <text class="stat-value" x="18" y="10">{name}</text>
-      <text class="stat-label" x="130" y="10">{pct:.1f}%</text>
+      <rect x="0" y="2" width="10" height="10" rx="2" fill="{color}"/>
+      <text class="stat-name" x="18" y="11">{name}</text>
+      <text class="stat-pct" x="145" y="11">{pct:.1f}%</text>
     </g>""")
 
-    svg_bars = "\n".join([f'<rect x="{x}" y="60" width="{w}" height="10" fill="{color}" rx="2"/>' for _, color, x, w, _ in progress_bars])
+    svg_bars = "\n".join([f'<rect x="{x}" y="64" width="{w}" height="12" fill="{color}" rx="2"/>' for _, color, x, w, _ in progress_bars])
     svg_legend = "\n".join(legend_items)
 
-    svg = f"""<svg width="450" height="195" viewBox="0 0 450 195" fill="none" xmlns="http://www.w3.org/2000/svg">
+    svg = f"""<svg width="480" height="225" viewBox="0 0 480 225" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="neon_border_langs" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00FF66" stop-opacity="0.9"/>
+      <stop offset="50%" stop-color="#00B4D8" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#00FF66" stop-opacity="0.9"/>
+    </linearGradient>
+  </defs>
   <style>
-    .header {{ font: 600 17px 'Segoe UI', Ubuntu, Sans-Serif; fill: #00FF66; }}
-    .stat-label {{ font: 400 13px 'Segoe UI', Ubuntu, Sans-Serif; fill: #8b949e; }}
-    .stat-value {{ font: 600 13px 'Segoe UI', Ubuntu, Sans-Serif; fill: #e6edf3; }}
+    .terminal-bg {{ fill: #0a0e14; stroke: url(#neon_border_langs); stroke-width: 1.5; }}
+    .title-bar {{ fill: #121820; }}
+    .dot-red {{ fill: #ff5f56; }}
+    .dot-yellow {{ fill: #ffbd2e; }}
+    .dot-green {{ fill: #27c93f; }}
+    .term-title {{ font: 600 11px 'Fira Code', 'JetBrains Mono', Consolas, monospace; fill: #6e7681; }}
+    .header {{ font: 700 14px 'Fira Code', 'JetBrains Mono', Consolas, monospace; fill: #00FF66; }}
+    .stat-name {{ font: 600 12.5px 'Fira Code', 'JetBrains Mono', Consolas, monospace; fill: #e6edf3; }}
+    .stat-pct {{ font: 700 12.5px 'Fira Code', 'JetBrains Mono', Consolas, monospace; fill: #00FF66; }}
+    .progress-track {{ fill: #161b22; stroke: #30363d; stroke-width: 1; }}
   </style>
-  <rect width="448" height="193" x="1" y="1" rx="8" fill="#0d1117" stroke="#00FF66" stroke-width="1.5"/>
-  
-  <!-- Header -->
-  <g transform="translate(25, 32)">
-    <text class="header" x="0" y="0">🛠️ Most Used Languages</text>
+
+  <!-- Frame & Window Base -->
+  <rect width="478" height="223" x="1" y="1" rx="8" class="terminal-bg"/>
+  <path d="M1 9C1 4.58172 4.58172 1 9 1H471C475.418 1 479 4.58172 479 9V28H1V9Z" class="title-bar"/>
+  <line x1="1" y1="28" x2="479" y2="28" stroke="#1f2937" stroke-width="1"/>
+
+  <!-- Terminal Controls -->
+  <circle cx="16" cy="14" r="5" class="dot-red"/>
+  <circle cx="32" cy="14" r="5" class="dot-yellow"/>
+  <circle cx="48" cy="14" r="5" class="dot-green"/>
+  <text x="70" y="18" class="term-title">secops@elliot: /sys/telemetry/languages</text>
+
+  <!-- Section Header -->
+  <g transform="translate(24, 52)">
+    <text class="header" x="0" y="0">&gt; MEMORY_ALLOC: LANGUAGE_WEIGHTS</text>
   </g>
 
-  <!-- Progress Bar Base & Segments -->
-  <rect x="25" y="60" width="400" height="10" rx="5" fill="#21262d"/>
+  <!-- Progress Bar Track & Segments -->
+  <rect x="24" y="64" width="430" height="12" rx="6" class="progress-track"/>
   {svg_bars}
 
   <!-- Legend -->
@@ -197,4 +249,4 @@ if __name__ == "__main__":
     with open("dist/top-langs.svg", "w", encoding="utf-8") as f:
         f.write(langs_svg)
 
-    print("Successfully generated dist/github-stats.svg and dist/top-langs.svg")
+    print("Successfully generated cyber terminal SVG telemetry cards.")

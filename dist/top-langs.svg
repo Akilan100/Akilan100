@@ -1,53 +1,77 @@
-<svg width="450" height="195" viewBox="0 0 450 195" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="480" height="225" viewBox="0 0 480 225" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="neon_border_langs" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00FF66" stop-opacity="0.9"/>
+      <stop offset="50%" stop-color="#00B4D8" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#00FF66" stop-opacity="0.9"/>
+    </linearGradient>
+  </defs>
   <style>
-    .header { font: 600 17px 'Segoe UI', Ubuntu, Sans-Serif; fill: #00FF66; }
-    .stat-label { font: 400 13px 'Segoe UI', Ubuntu, Sans-Serif; fill: #8b949e; }
-    .stat-value { font: 600 13px 'Segoe UI', Ubuntu, Sans-Serif; fill: #e6edf3; }
+    .terminal-bg { fill: #0a0e14; stroke: url(#neon_border_langs); stroke-width: 1.5; }
+    .title-bar { fill: #121820; }
+    .dot-red { fill: #ff5f56; }
+    .dot-yellow { fill: #ffbd2e; }
+    .dot-green { fill: #27c93f; }
+    .term-title { font: 600 11px 'Fira Code', 'JetBrains Mono', Consolas, monospace; fill: #6e7681; }
+    .header { font: 700 14px 'Fira Code', 'JetBrains Mono', Consolas, monospace; fill: #00FF66; }
+    .stat-name { font: 600 12.5px 'Fira Code', 'JetBrains Mono', Consolas, monospace; fill: #e6edf3; }
+    .stat-pct { font: 700 12.5px 'Fira Code', 'JetBrains Mono', Consolas, monospace; fill: #00FF66; }
+    .progress-track { fill: #161b22; stroke: #30363d; stroke-width: 1; }
   </style>
-  <rect width="448" height="193" x="1" y="1" rx="8" fill="#0d1117" stroke="#00FF66" stroke-width="1.5"/>
-  
-  <!-- Header -->
-  <g transform="translate(25, 32)">
-    <text class="header" x="0" y="0">🛠️ Most Used Languages</text>
+
+  <!-- Frame & Window Base -->
+  <rect width="478" height="223" x="1" y="1" rx="8" class="terminal-bg"/>
+  <path d="M1 9C1 4.58172 4.58172 1 9 1H471C475.418 1 479 4.58172 479 9V28H1V9Z" class="title-bar"/>
+  <line x1="1" y1="28" x2="479" y2="28" stroke="#1f2937" stroke-width="1"/>
+
+  <!-- Terminal Controls -->
+  <circle cx="16" cy="14" r="5" class="dot-red"/>
+  <circle cx="32" cy="14" r="5" class="dot-yellow"/>
+  <circle cx="48" cy="14" r="5" class="dot-green"/>
+  <text x="70" y="18" class="term-title">secops@elliot: /sys/telemetry/languages</text>
+
+  <!-- Section Header -->
+  <g transform="translate(24, 52)">
+    <text class="header" x="0" y="0">&gt; MEMORY_ALLOC: LANGUAGE_WEIGHTS</text>
   </g>
 
-  <!-- Progress Bar Base & Segments -->
-  <rect x="25" y="60" width="400" height="10" rx="5" fill="#21262d"/>
-  <rect x="25" y="60" width="249.1" height="10" fill="#f1e05a" rx="2"/>
-<rect x="274.1" y="60" width="49.9" height="10" fill="#3178c6" rx="2"/>
-<rect x="324.0" y="60" width="36.0" height="10" fill="#b07219" rx="2"/>
-<rect x="360.0" y="60" width="32.4" height="10" fill="#427819" rx="2"/>
-<rect x="392.4" y="60" width="23.3" height="10" fill="#3572A5" rx="2"/>
+  <!-- Progress Bar Track & Segments -->
+  <rect x="24" y="64" width="430" height="12" rx="6" class="progress-track"/>
+  <rect x="24" y="64" width="267.0" height="12" fill="#f1e05a" rx="2"/>
+<rect x="291.0" y="64" width="53.5" height="12" fill="#3178c6" rx="2"/>
+<rect x="344.5" y="64" width="38.6" height="12" fill="#b07219" rx="2"/>
+<rect x="383.1" y="64" width="34.7" height="12" fill="#427819" rx="2"/>
+<rect x="417.8" y="64" width="26.2" height="12" fill="#3572A5" rx="2"/>
 
   <!-- Legend -->
   
-    <g transform="translate(25, 100)">
-      <circle cx="6" cy="6" r="5" fill="#f1e05a"/>
-      <text class="stat-value" x="18" y="10">JavaScript</text>
-      <text class="stat-label" x="130" y="10">62.3%</text>
+    <g transform="translate(24, 104)">
+      <rect x="0" y="2" width="10" height="10" rx="2" fill="#f1e05a"/>
+      <text class="stat-name" x="18" y="11">JavaScript</text>
+      <text class="stat-pct" x="145" y="11">62.1%</text>
     </g>
 
-    <g transform="translate(225, 100)">
-      <circle cx="6" cy="6" r="5" fill="#3178c6"/>
-      <text class="stat-value" x="18" y="10">TypeScript</text>
-      <text class="stat-label" x="130" y="10">12.5%</text>
+    <g transform="translate(244, 104)">
+      <rect x="0" y="2" width="10" height="10" rx="2" fill="#3178c6"/>
+      <text class="stat-name" x="18" y="11">TypeScript</text>
+      <text class="stat-pct" x="145" y="11">12.4%</text>
     </g>
 
-    <g transform="translate(25, 126)">
-      <circle cx="6" cy="6" r="5" fill="#b07219"/>
-      <text class="stat-value" x="18" y="10">Java</text>
-      <text class="stat-label" x="130" y="10">9.0%</text>
+    <g transform="translate(24, 130)">
+      <rect x="0" y="2" width="10" height="10" rx="2" fill="#b07219"/>
+      <text class="stat-name" x="18" y="11">Java</text>
+      <text class="stat-pct" x="145" y="11">9.0%</text>
     </g>
 
-    <g transform="translate(225, 126)">
-      <circle cx="6" cy="6" r="5" fill="#427819"/>
-      <text class="stat-value" x="18" y="10">Makefile</text>
-      <text class="stat-label" x="130" y="10">8.1%</text>
+    <g transform="translate(244, 130)">
+      <rect x="0" y="2" width="10" height="10" rx="2" fill="#427819"/>
+      <text class="stat-name" x="18" y="11">Makefile</text>
+      <text class="stat-pct" x="145" y="11">8.1%</text>
     </g>
 
-    <g transform="translate(25, 152)">
-      <circle cx="6" cy="6" r="5" fill="#3572A5"/>
-      <text class="stat-value" x="18" y="10">Python</text>
-      <text class="stat-label" x="130" y="10">5.8%</text>
+    <g transform="translate(24, 156)">
+      <rect x="0" y="2" width="10" height="10" rx="2" fill="#3572A5"/>
+      <text class="stat-name" x="18" y="11">Python</text>
+      <text class="stat-pct" x="145" y="11">6.1%</text>
     </g>
 </svg>
