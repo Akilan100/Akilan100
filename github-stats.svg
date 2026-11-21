@@ -1,0 +1,75 @@
+<svg width="480" height="225" viewBox="0 0 480 225" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="neon_border" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00FF66" stop-opacity="0.9"/>
+      <stop offset="50%" stop-color="#00B4D8" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#00FF66" stop-opacity="0.9"/>
+    </linearGradient>
+  </defs>
+  <style>
+    .terminal-bg { fill: #0a0e14; stroke: url(#neon_border); stroke-width: 1.5; }
+    .title-bar { fill: #121820; }
+    .dot-red { fill: #ff5f56; }
+    .dot-yellow { fill: #ffbd2e; }
+    .dot-green { fill: #27c93f; }
+    .term-title { font: 600 11px 'Fira Code', 'JetBrains Mono', Consolas, monospace; fill: #6e7681; }
+    .header { font: 700 14px 'Fira Code', 'JetBrains Mono', Consolas, monospace; fill: #00FF66; }
+    .stat-label { font: 500 12.5px 'Fira Code', 'JetBrains Mono', Consolas, monospace; fill: #8b949e; }
+    .stat-value { font: 700 13px 'Fira Code', 'JetBrains Mono', Consolas, monospace; fill: #00FF66; }
+    .rank-circle { stroke: #00FF66; stroke-width: 3.5; fill: none; }
+    .rank-text { font: 800 26px 'Fira Code', 'JetBrains Mono', Consolas, monospace; fill: #00FF66; text-anchor: middle; dominant-baseline: central; }
+    .rank-sub { font: 600 10px 'Fira Code', 'JetBrains Mono', Consolas, monospace; fill: #58a6ff; text-anchor: middle; letter-spacing: 1px; }
+  </style>
+
+  <!-- Frame & Window Base -->
+  <rect width="478" height="223" x="1" y="1" rx="8" class="terminal-bg"/>
+  <path d="M1 9C1 4.58172 4.58172 1 9 1H471C475.418 1 479 4.58172 479 9V28H1V9Z" class="title-bar"/>
+  <line x1="1" y1="28" x2="479" y2="28" stroke="#1f2937" stroke-width="1"/>
+
+  <!-- Terminal Window Controls -->
+  <circle cx="16" cy="14" r="5" class="dot-red"/>
+  <circle cx="32" cy="14" r="5" class="dot-yellow"/>
+  <circle cx="48" cy="14" r="5" class="dot-green"/>
+  <text x="70" y="18" class="term-title">secops@elliot: /sys/telemetry/stats</text>
+
+  <!-- Section Header -->
+  <g transform="translate(24, 52)">
+    <text class="header" x="0" y="0">&gt; EXEC_STATUS: 0x00 [TELEMETRY_ONLINE]</text>
+  </g>
+
+  <!-- Stats Grid -->
+  <g transform="translate(24, 80)">
+    <!-- Stars -->
+    <g transform="translate(0, 0)">
+      <text class="stat-label" x="0" y="0">[+] Stars Earned      :</text>
+      <text class="stat-value" x="195" y="0">02</text>
+    </g>
+    <!-- Repositories -->
+    <g transform="translate(0, 24)">
+      <text class="stat-label" x="0" y="0">[+] Total Repositories :</text>
+      <text class="stat-value" x="195" y="0">10</text>
+    </g>
+    <!-- PRs & Issues -->
+    <g transform="translate(0, 48)">
+      <text class="stat-label" x="0" y="0">[+] PRs &amp; Sec Issues  :</text>
+      <text class="stat-value" x="195" y="0">00</text>
+    </g>
+    <!-- Commits -->
+    <g transform="translate(0, 72)">
+      <text class="stat-label" x="0" y="0">[+] Total Commits YTD  :</text>
+      <text class="stat-value" x="195" y="0">35</text>
+    </g>
+    <!-- System Security Status -->
+    <g transform="translate(0, 96)">
+      <text class="stat-label" x="0" y="0">[+] Sec Clearance      :</text>
+      <text class="stat-value" x="195" y="0" fill="#58a6ff">LEVEL_4_ROOT</text>
+    </g>
+  </g>
+
+  <!-- Right Rank HUD -->
+  <g transform="translate(395, 126)">
+    <circle cx="0" cy="0" r="44" class="rank-circle" stroke-dasharray="276" stroke-dashoffset="35"/>
+    <text class="rank-text" x="0" y="-3">A+</text>
+    <text class="rank-sub" x="0" y="18">CYBER_OP</text>
+  </g>
+</svg>
